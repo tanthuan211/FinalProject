@@ -5,32 +5,29 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
-import color from '../../constants/color';
-import GVCNScreen from './ChildScreens/GVCNScreen';
-import ActivityScreen from './ActivityScreen';
-import HomeScreen from './HomeScreen';
-import SchoolNotiScreen from './ChildScreens/SchoolNotiScreen'
+import color from '../../../constants/color';
+
+import GVCNNotiStack from '../ChildScreens/GVCNNotiStack';
+import BanTruStack from '../ChildScreens/BanTruStack';
+import HocTapStack from '../ChildScreens/HocTapStack';
+import SchoolNotiStack from '../ChildScreens/SchoolNotiStack';
 
 const Tab = createMaterialTopTabNavigator();
 
 export default function NotificationScreen() {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <View style={{flex: 1}}>
       <Tab.Navigator
         tabBarOptions={{
           activeTintColor: '#f1c40f',
           inactiveTintColor: color.PRIMARY,
           showIcon: true,
           labelStyle: {fontSize: 15},
-          tabStyle: {width: 100, height: 51},
+          tabStyle: {width: 100, height: 51, marginTop: 40},
           indicatorStyle: {
-         
             height: 52,
             top: 0,
             backgroundColor: color.WHITE,
-            borderColor: color.PRIMARY,
-            borderBottomWidth: 2,
-
           },
           style: {
             backgroundColor: color.WHITE,
@@ -39,7 +36,7 @@ export default function NotificationScreen() {
         }}>
         <Tab.Screen
           name="trường"
-          component={SchoolNotiScreen}
+          component={SchoolNotiStack}
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
@@ -54,7 +51,7 @@ export default function NotificationScreen() {
         />
         <Tab.Screen
           name="GVCN"
-          component={GVCNScreen}
+          component={GVCNNotiStack}
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
@@ -69,7 +66,7 @@ export default function NotificationScreen() {
         />
         <Tab.Screen
           name="Bán trú"
-          component={ActivityScreen}
+          component={BanTruStack}
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
@@ -84,7 +81,7 @@ export default function NotificationScreen() {
         />
         <Tab.Screen
           name="Học tập"
-          component={HomeScreen}
+          component={HocTapStack}
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
@@ -98,6 +95,6 @@ export default function NotificationScreen() {
           }}
         />
       </Tab.Navigator>
-    </SafeAreaView>
+    </View>
   );
 }

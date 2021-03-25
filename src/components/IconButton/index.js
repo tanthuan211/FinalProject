@@ -6,13 +6,21 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import color from '../../constants/color';
 
-export default function index({title, iconName, iconColor ,color1, color2}) {
+export default function index({
+  height,
+  width,
+  title,
+  iconName,
+  iconColor,
+  backgroundColor,
+  borderRadius,
+}) {
   return (
-    <View style={{flex: 1, flexDirection: 'row'}}>
+    
       <View
         style={{
+          justifyContent:'flex-end',
           flex: 1,
-          alignItems: 'center',
           shadowColor: '#000000',
           shadowOffset: {
             height: 0,
@@ -21,57 +29,41 @@ export default function index({title, iconName, iconColor ,color1, color2}) {
           shadowOpacity: 0.39,
           shadowRadius: 5,
           elevation: 1,
-        
         }}>
-        <LinearGradient
-          borderRadius={12}
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 1}}
-          colors={[color1, color2]}>
-          <TouchableOpacity
+        <TouchableOpacity
+          style={{
+            height: height,
+            width: width,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            backgroundColor: backgroundColor,
+            borderRadius: borderRadius,
+          }}>
+          <View
             style={{
-              height: 80,
-              width: 190,
-              flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <View
-              style={{
-                flex: 1,
-                alignItems: 'center',
-              }}>
-              <View
-                style={{
-                  height: 50,
-                  width: 50,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  backgroundColor: color.WHITE,
-                  borderRadius: 25,
-                }}>
-                <Icon name={iconName} size={22} color={iconColor} />
-              </View>
-            </View>
+            <Icon name={iconName} size={28} color={iconColor} />
+          </View>
+          <View style={{width: 10}} />
 
-            <View
+          <View
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Text
               style={{
-                flex: 2,
-                alignItems: 'center',
-                justifyContent: 'center',
+                fontSize: 16,
+                fontWeight: '700',
+                color: color.PRIMARY,
               }}>
-              <Text
-                style={{
-                  fontSize: 16,
-                  // fontWeight: '700',
-                  color: color.WHITE,
-                }}>
-                {title}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </LinearGradient>
+              {title}
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
-    </View>
+    
   );
 }

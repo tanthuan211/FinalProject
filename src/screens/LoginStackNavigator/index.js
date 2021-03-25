@@ -7,9 +7,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import ForgotPasswordScreen from './ForgotPasswordScreen';
 import WelcomeScreen from './WelcomeScreen';
 import CreateAccountScreen from './CreateAccountScreen';
-import SchoolNotiScreen from '../WorkerTabNavigatorPH/ChildScreens/SchoolNotiScreen';
-import ScholNotiDetailScreen from '../WorkerTabNavigatorPH/ChildScreens/ScholNotiDetailScreen';
-import TabNavigator from '../NavigatorPH/TabNavigator';
+
+
 
 const Stack = createStackNavigator();
 

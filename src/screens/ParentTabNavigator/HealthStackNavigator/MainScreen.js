@@ -4,32 +4,30 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
+import MealScreen from './MealScreen';
+import TotalMedicalScreen from './TotalMedicalScreen';
+import MonthlyScreen from './MonthlyScreen'
+
+import Container from '../../../components/Container';
+import color from '../../../constants/color';
+
 const Tab = createMaterialTopTabNavigator();
 
-import color from '../../constants/color';
-import HealthScreen from './HealthScreen';
-import HomeScreen from './HomeScreen';
-import SchoolNotiScreen from './ChildScreens/SchoolNotiScreen'
-
-
-export default function NotificationScreen() {
+export default function MainScreen() {
   return (
-    <SafeAreaView style={{flex: 1}}>
-       <Tab.Navigator
+    <View style={{flex: 1}}>
+      <Tab.Navigator
         tabBarOptions={{
           activeTintColor: '#f1c40f',
           inactiveTintColor: color.PRIMARY,
           showIcon: true,
-          labelStyle: {fontSize: 11},
-          tabStyle: {width: 140, height: 51},
+          labelStyle: {fontSize: 15},
+          tabStyle: {width: 135, height: 51, marginTop: 40},
           indicatorStyle: {
-         
             height: 52,
             top: 0,
             backgroundColor: color.WHITE,
-            borderColor: color.PRIMARY,
-            borderBottomWidth: 2,
-
           },
           style: {
             backgroundColor: color.WHITE,
@@ -37,13 +35,13 @@ export default function NotificationScreen() {
           },
         }}>
         <Tab.Screen
-          name="Hoạt động trên lớp"
-          component={SchoolNotiScreen}
+          name="Tổng quát"
+          component={TotalMedicalScreen}
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
                 <Icon
-                  name="warehouse"
+                  name="sort-reverse-variant"
                   color={focused ? '#f9ca24' : '#16a085'}
                   size={22}
                 />
@@ -52,13 +50,13 @@ export default function NotificationScreen() {
           }}
         />
         <Tab.Screen
-          name="GVCN"
-          component={HealthScreen}
+          name="Tháng"
+          component={MonthlyScreen}
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
                 <Icon
-                  name="face"
+                  name="calendar-month"
                   color={focused ? '#f9ca24' : '#16a085'}
                   size={22}
                 />
@@ -66,15 +64,14 @@ export default function NotificationScreen() {
             },
           }}
         />
-       
         <Tab.Screen
-          name="Học tập"
-          component={HomeScreen}
+          name="Thực đơn"
+          component={MealScreen}
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
                 <Icon
-                  name="pencil-box-multiple"
+                  name="cupcake"
                   color={focused ? '#f9ca24' : '#16a085'}
                   size={22}
                 />
@@ -83,6 +80,6 @@ export default function NotificationScreen() {
           }}
         />
       </Tab.Navigator>
-    </SafeAreaView>
+    </View>
   );
 }

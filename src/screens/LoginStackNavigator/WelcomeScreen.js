@@ -27,14 +27,7 @@ export default function WelcomeScreen({navigation}) {
   const [user, setUser] = React.useState(null);
   const [pass, setPass] = React.useState(null);
   return (
-    <View style={{flex: 1}}>
-      <ImageBackground
-        style={{flex: 1, justifyContent: 'center'}}
-        blurRadius={3}
-        source={{
-          uri:
-            'https://lh3.googleusercontent.com/proxy/2RbI7-QfDLEqcgQ6xXgwGK_GHiVJBLlAwrNpT0IEmXgq1AJFhqa2ej-DEXtxrz12PKBZ2-R8idlKAvrglDXZk7VgILnj',
-        }}>
+    <View style={{flex: 1, backgroundColor:color.WHITE}}>
         <View style={{flex: 1.5}}>
           <View style={{flex: 2, alignItems: 'center', marginTop: 100}}>
             <Image source={Logocenter} style={{height: 170, width: 250}} />
@@ -114,10 +107,10 @@ export default function WelcomeScreen({navigation}) {
             <View
               style={{
                 marginTop: 10,
-                justifyContent: 'center',
+                justifyContent: 'space-between',
                 flexDirection: 'row',
               }}>
-              {/* <TouchableOpacity
+              <TouchableOpacity
               onPress={() => {
                 navigation.navigate('CreateAccountScreen');
                 console.log('Go');
@@ -125,13 +118,13 @@ export default function WelcomeScreen({navigation}) {
               <Text style={{color: '#0097e6', fontSize: 18}}>
                 Tạo tài khoản
               </Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => {
                   navigation.navigate('ForgotPassword');
                   console.log('Go');
                 }}>
-                <Text style={{color: color.WHITE, fontSize: 18}}>
+                <Text style={{color: '#0097e6', fontSize: 18}}>
                   Quên mật khẩu?
                 </Text>
               </TouchableOpacity>
@@ -168,7 +161,7 @@ export default function WelcomeScreen({navigation}) {
             </Text>
           </View>
         </View>
-      </ImageBackground>
     </View>
   );
 }
+

@@ -8,15 +8,16 @@ import { NavigationContainer } from '@react-navigation/native';
 
 // import WelcomeScreen from '../screens/LoginStackNavigator/WelcomeScreen';
 // import TabNavigator from '../screens/TabNavigator';
+import Container from '../components/Container';
 
-import AppNavigator from '../screens/NavigatorPH/AppNavigator';
+import AppNavigator from '../screens/AppNavigator';
 const App = () => {
   return (
     <View style={{flex: 1}}>
-      {/* <WelcomeScreen /> */}
-      {/* <ForgotPasswordScreen/> */}
+     
       <AppNavigator/>
-      {/* <TabNavigator/> */}
+      {/* <Container /> */}
+      
     </View>
   );
 };
